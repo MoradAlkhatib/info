@@ -17,10 +17,10 @@ class Handler(BaseHTTPRequestHandler):
             r = requests.get(url_http_cat+dic['amount'])
             data = r.json()
             message = ""
-            for i in range(int(dic['amount'])):
-                question = data['results'][i]['question']
-                answer = data['results'][i]['correct_answer']
-                message+=f"{question} The Answer Is: {answer}  \n"
+            # for i in range(int(dic['amount'])):
+            #     question = data['results'][i]['question']
+            #     answer = data['results'][i]['correct_answer']
+            #     message+=f"{question} The Answer Is: {answer}  \n"
             
             length=str(len(data['results']))+"\n"
          
