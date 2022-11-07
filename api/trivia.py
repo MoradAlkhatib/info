@@ -17,7 +17,7 @@ class Handler(BaseHTTPRequestHandler):
             r = requests.get(url_http_cat+dic['amount'])
             data = r.json()
             message = ""
-            if int(dic['amount'])<51:
+            if int(dic['amount']) < 51:
                 for i in range(int(dic['amount'])):
                     question = data['results'][i]['question']
                     answer = data['results'][i]['correct_answer']
@@ -33,7 +33,6 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
-        self.wfile.write(length.encode())
         self.wfile.write(message.encode())
        
        
