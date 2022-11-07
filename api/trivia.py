@@ -6,7 +6,7 @@ import requests
 class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
-        url_http_cat = "https://opentdb.com/api.php"
+        url_http_cat = "https://opentdb.com/api.php?amount="
 
         path = self.path
         url_components = parse.urlsplit(path)
