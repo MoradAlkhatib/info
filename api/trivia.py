@@ -6,17 +6,17 @@ import requests
 class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
-        url_http_cat = "https://http.cat/"
+        url_http_cat = "https://opentdb.com/api.php"
 
         path = self.path
         url_components = parse.urlsplit(path)
         query_string_list = parse.parse_qsl(url_components.query)
         dic = dict(query_string_list)
 
-        if "status" in dic:
+        if "amount" in dic:
             r = requests.get(url_http_cat+dic['status'])
             data = r.json()
-           
+            
             # self.rfile.read(data)
          
 
@@ -31,3 +31,7 @@ class Handler(BaseHTTPRequestHandler):
        
         return
 
+
+get_data = requests.get("https://http.cat/400")
+get_data.response.json()
+print(get_data.__dict__)
