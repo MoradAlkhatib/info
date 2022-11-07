@@ -15,7 +15,8 @@ class Handler(BaseHTTPRequestHandler):
 
         if "status" in dic:
             r = requests.get(url_http_cat+dic['status'])
-            data = r.json()
+            data =r
+            # self.rfile.read(data)
          
 
         else :
@@ -25,5 +26,6 @@ class Handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
         self.wfile.write(data.encode())
+        self.wfile.write(data)
         return
 
