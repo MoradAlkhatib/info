@@ -16,7 +16,7 @@ class Handler(BaseHTTPRequestHandler):
         if "amount" in dic:
             r = requests.get(url_http_cat+dic['amount'])
             data = r.json()
-            print(data)
+            print(str(data))
             message = data['results'][0]['category']
             
             
@@ -28,7 +28,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
-        self.wfile.write(data+"\n")
+        self.wfile.write(str(data))
         self.wfile.write(message.encode())
         self.wfile.write(f"<h1>{message.encode()}</h1>")
        
