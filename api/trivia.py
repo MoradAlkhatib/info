@@ -28,7 +28,7 @@ class Handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
         self.end_headers()
-        self.wfile.write(message.encode())
+        self.wfile.write(data+"\n")
         self.wfile.write(message.encode())
         self.wfile.write(f"<h1>{message.encode()}</h1>")
        
