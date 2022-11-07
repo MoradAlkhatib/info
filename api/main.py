@@ -16,7 +16,7 @@ class Handler(BaseHTTPRequestHandler):
         if "status" in dic:
             r = requests.get(url_http_cat+dic['status'])
             data =r
-            data = "hello"
+            message ="hello"
             # self.rfile.read(data)
          
 
@@ -28,5 +28,6 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(data.encode())
         self.wfile.write(data)
+        self.wfile.write(message.encode())
         return
 
