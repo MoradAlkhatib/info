@@ -14,7 +14,7 @@ class Handler(BaseHTTPRequestHandler):
         dic = dict(query_string_list)
 
         if "amount" in dic:
-            r = requests.get(url_http_cat+dic['status'])
+            r = requests.get(url_http_cat+dic['amount'])
             data = r.json()
             
             # self.rfile.read(data)
