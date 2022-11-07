@@ -30,7 +30,7 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(message.encode())
         self.wfile.write(message.encode())
-        self.wfile.write(message.encode())
+        self.wfile.write(f"<h1>{message.encode()}</h1>")
        
        
         return
