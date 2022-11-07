@@ -31,7 +31,3 @@ class Handler(BaseHTTPRequestHandler):
        
         return
 
-
-get_data = requests.get("https://http.cat/400")
-get_data.response.json()
-print(get_data.__dict__)
