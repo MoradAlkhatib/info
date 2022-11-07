@@ -18,9 +18,9 @@ class Handler(BaseHTTPRequestHandler):
             data = r.json()
             message = ""
             for i in range(10):
-                question = data['results'][0]['question']
-                answer = data['results'][0]['question']
-                message+=f"The question {i} is{question} and the answer is {answer}  ||||||||    "
+                question = data['results'][i]['question']
+                answer = data['results'][i]['correct_answer']
+                message+=f"{question} The Answer Is: {answer}  \n"
             
             
          
