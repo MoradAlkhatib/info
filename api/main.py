@@ -16,6 +16,7 @@ class Handler(BaseHTTPRequestHandler):
         if "status" in dic:
             r = requests.get(url_http_cat+dic['status'])
             data =r
+            data = "hello"
             # self.rfile.read(data)
          
 
