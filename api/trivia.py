@@ -24,7 +24,7 @@ class Handler(BaseHTTPRequestHandler):
                     message+=f"{question} The Answer Is: {answer}  \n"
             
             else :
-                message = "We Can Retrieve is 50 Question Maximum."
+                message = "We Can Retrieve 50 Question Maximum."
          
 
         else :
