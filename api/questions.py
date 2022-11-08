@@ -28,7 +28,7 @@ class Handler(BaseHTTPRequestHandler):
                 message = "We Can Retrieve 50 Question Maximum."
 
         elif "category" in dic:
-            if type(dic['category']) == int:
+            if type(dic['category']) == "int":
                 if int(dic['category']) < 33:
                     url_http_cat = "https://opentdb.com/api.php?amount=10&category="
                     r = requests.get(url_http_cat+dic['category'])
