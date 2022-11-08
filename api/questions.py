@@ -28,20 +28,27 @@ class Handler(BaseHTTPRequestHandler):
                 message = "We Can Retrieve 50 Question Maximum."
 
         elif "category" in dic:
-                url_http_cat = "https://opentdb.com/api.php?amount=10&category="
-                r = requests.get(url_http_cat+dic['category'])
-                data = r.json()
-                message = f"{data['results'][0]['category']}\n"
-                for i in range(10):
-                    question = data['results'][i]['question']
-                    answer = data['results'][i]['correct_answer']
-                    message+=f"{question} The Answer Is: {answer}  \n"
+            if type(dic['category']) == int:
+                if int(dic['category']) < 33:
+                    url_http_cat = "https://opentdb.com/api.php?amount=10&category="
+                    r = requests.get(url_http_cat+dic['category'])
+                    data = r.json()
+                    message = f"{data['results'][0]['category']}\n"
+                    for i in range(10):
+                        question = data['results'][i]['question']
+                        answer = data['results'][i]['correct_answer']
+                        message+=f"{question} The Answer Is: {answer}  \n"
+                else:
+                    message = "You have just 32 category."
+            else:
+                message = "The category must be integer between 0-32."
+
                 
 
 
 
         else :
-            message = "hi"
+            message = "Define amount or category please.."
         
         self.send_response(200)
         self.send_header('Content-type', 'text/plain')
