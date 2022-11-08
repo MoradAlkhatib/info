@@ -27,11 +27,11 @@ class Handler(BaseHTTPRequestHandler):
             else :
                 message = "We Can Retrieve 50 Question Maximum."
 
-        elif "type" in dic:
-                url_http_cat = "https://opentdb.com/api.php?amount=10&type="
-                r = requests.get(url_http_cat+dic['type'])
+        elif "category" in dic:
+                url_http_cat = "https://opentdb.com/api.php?amount=10&category="
+                r = requests.get(url_http_cat+dic['category'])
                 data = r.json()
-                message = f"{dic['type']}\n"
+                message = f"{dic['category']}\n"
                 for i in range(10):
                     question = data['results'][i]['question']
                     answer = data['results'][i]['correct_answer']
