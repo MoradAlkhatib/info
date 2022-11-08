@@ -31,7 +31,7 @@ class Handler(BaseHTTPRequestHandler):
                 url_http_cat = "https://opentdb.com/api.php?amount=10&category="
                 r = requests.get(url_http_cat+dic['category'])
                 data = r.json()
-                message = f"{dic['category']}\n"
+                message = f"{data['results'][0]['category']}\n"
                 for i in range(10):
                     question = data['results'][i]['question']
                     answer = data['results'][i]['correct_answer']
